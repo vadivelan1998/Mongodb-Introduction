@@ -1,0 +1,39 @@
+C:\Users\lenovo>mongo  
+> use assignment                                                                                                                                                       
+switched to db assignment 
+   
+> show dbs   
+
+> db.createCollection("users")
+
+> db.users.insert({"first_name":"velu",last_name:"vadivelan","email" : "lgronallerf@csmonitor.com",gender:"male",age:"23",ip_address:"2341.4.5.5"})                   
+ WriteResult({ "nInserted" : 1 })  
+                                                                                                                                    
+> db.users.insert({ "firts_name" : "boopathy", "last_name" : "pugal", "email" : "boopathi@gmail.com", "gender" : "male", "ip_address" : "123d", "age" : 27 })         
+WriteResult({ "nInserted" : 1 }) 
+
+> db.users.insertMany([{"id" : 11, "first_name" : "Derril", "last_name" : "Bothams", "email" : "dbothamsa@etsy.com", "gender" : "Male", "ip_address" : "49.174.149.175", "age" : 26 },{"id" : 11, "first_name" : "Derril", "last_name" : "Bothams", "email" : "dbothamsa@etsy.com", "gender" : "Male", "ip_address" : "49.174.149.175", "age" : 26 }])                                                                                                                                        >       
+
+
+> db.users.find({}).pretty()  
+
+> db.users.find({"firstName": "velu"}).pretty() 
+ 
+> db.users.findOne({"firstName": "murali"})
+
+> db.users.update({"_id": ObjectId("622784c762d7ae48ff98f0df")}, {$set: {"lastName": "ramesh"}})
+
+> db.users.update({"firstName": "rahul"}, {$set: {"lastName": "Shah"}})
+
+> db.users.updateMany({"firstName": "Prateek"}, {$set: {"religion": "Hindu"}})
+
+> db.users.remove({"firstName": "john"})  
+
+> db.users.deleteOne({age:{$gte:20}}) 
+{ "acknowledged" : true, "deletedCount" : 1 }  
+
+> db.users.deleteMany({age:{$gte:20}})  
+{ "acknowledged" : true, "deletedCount" : 396 }    
+
+
+> db.dropDatabase()                                                                                                                                                           
